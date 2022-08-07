@@ -6,7 +6,7 @@ namespace RomanToInteger
     {
         public int RomanToInteger(string RomanString)
         {
-            int Soma = 0;
+            int Sum = 0;
             Dictionary<char, int> RomanDictionary = new Dictionary<char, int>()
             {
                 { 'I', 1 },
@@ -21,17 +21,17 @@ namespace RomanToInteger
             for (int i = 0; i < RomanString.Length; i++)
             {
                 char RomanChar = RomanString[i];
-                RomanDictionary.TryGetValue(RomanChar, out int Numero);
+                RomanDictionary.TryGetValue(RomanChar, out int Number);
                 if (i + 1 < RomanString.Length && RomanDictionary[RomanString[i + 1]] > RomanDictionary[RomanChar])
                 {
-                    Soma -= Numero;
+                    Sum -= Number;
                 }
                 else
                 {
-                    Soma += Numero;
+                    Sum += Number;
                 }
             }
-            return Soma;
+            return Sum;
         }
     }
 }
